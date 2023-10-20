@@ -3,13 +3,11 @@ def process_text_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
 
-        # Iterate over the lines
         for i in range(len(lines)):
             line = lines[i].strip()
 
-            # Check if the line is not empty
             if line:
-                # Split the line into speaker and response
+                # Split the line into speaker and response (modify dis one for your own dataset)
                 parts = line.split(':')
                 if len(parts) > 1:
                     speaker = parts[0].strip()
@@ -17,7 +15,6 @@ def process_text_file(file_path):
                     processed_line = f"{speaker}: {response}"
                     processed_lines.append(processed_line)
 
-    # Join the processed lines with '   ' separator
     processed_text = '   '.join(processed_lines)
     return processed_text
 
